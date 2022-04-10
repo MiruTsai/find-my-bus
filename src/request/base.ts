@@ -1,6 +1,5 @@
 const base = {
-    baseurl: '/mock',
+    baseurl: 'https://ptx.transportdata.tw/MOTC',
 };
 
 export default base;
-

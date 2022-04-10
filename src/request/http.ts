@@ -1,11 +1,11 @@
 import base from './base';
 import axios, { AxiosRequestConfig } from 'axios';
 
-//timeout
+// timeout
 const instance = axios.create({
     timeout: 1000 * 10,
 });
-// 设置公共路径 和 Content-Type
+// 設置公共路徑
 instance.defaults.baseURL = base.baseurl;
 
 interface AxiosConfig extends AxiosRequestConfig {
@@ -26,7 +26,7 @@ const Fetch = ({
         // loading
     }
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve: (value: []) => void, reject) => {
         instance({
             url,
             method,
@@ -34,7 +34,7 @@ const Fetch = ({
             params,
             headers,
         }).then((res) => {
-            resolve(res.data.data);
+            resolve(res.data)
         }).catch((err) => {
             reject(err);
         });
