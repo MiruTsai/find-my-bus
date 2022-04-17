@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import { busAPI } from '../request/api/busAPI'
 import Station from '../types/station'
 import Route from '@/types/route'
+import Estimated from '@/types/estimatedTime'
 export default createStore({
   state: {
       position: {
@@ -9,7 +10,9 @@ export default createStore({
         longitude: 0
       },
       stations: [] as Station[],
-      routes: [] as Route[]
+      routes: [] as Route[],
+      routeEstimateTime: [] as Estimated[],
+      stationId: '' as String
   },
   mutations: {
     updatePosition (state) {
@@ -26,9 +29,14 @@ export default createStore({
         state.stations = res;      
       })
     },
-    getStopRoutes (state, stopId) {
-      busAPI.getStopRoutes(stopId).then((res) => {
+    getStopRoutes (state, stationId) {
+      busAPI.getStopRoutes(stationId).then((res) => {
         state.routes = res;      
+      })
+    },
+    getRouteEstimateTime (state, routeName) {
+      busAPI.getRouteEstimatedTime(routeName).then((res) => {
+        state.routeEstimateTime = res;
       })
     }
   },
@@ -36,8 +44,11 @@ export default createStore({
     getNearStations ({ commit }) {
       commit('getNearStations')
     },
-    getStopRoutes ({ commit }, stopId) {
-      commit('getStopRoutes', stopId)
+    getStopRoutes ({ commit }, stationId) {
+      commit('getStopRoutes', stationId)
+    },
+    getRouteEstimateTime({ commit }, routeName) {
+      commit('getRouteEstimateTime', routeName)
     }
   }
 })

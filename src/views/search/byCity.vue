@@ -31,9 +31,9 @@
         <label for="Taipei">嘉義市</label>
         <input v-model="city" type="radio" name="citys" id="Taipei">
         <label for="Taipei">嘉義縣</label>
-        <input v-model="city" type="radio" name="citys" id="Taipei">
+        <input v-model="city" type="radio" name="citys" id="Tainan" value="Tainan">
         <label for="Taipei">台南市</label>
-        <input v-model="city" type="radio" name="citys" id="Taipei">
+        <input v-model="city" type="radio" name="citys" id="Kaohsiung" value="Kaohsiung">
         <label for="Taipei">高雄市</label>
     </div>
     <div class="flex justify-between items-center m-2">        
@@ -70,31 +70,28 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-$mainBlue: #1CC8EE;
 input[type='radio'] {
     display: none;
 }
 input[type='radio']:checked + label{
-    background-color: $mainBlue;
+    background-color: var(--primary-color);
     color: #000000;
 }
 
 label {
-    color: $mainBlue;
+    color: var(--primary-color);
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid $mainBlue;
+    border: 1px solid var(--primary-color);
     background-color: transparent;
-    box-shadow: 0px 0px 6px 0px $mainBlue;
+    box-shadow: 0px 0px 6px 0px var(--primary-color);
     border-radius: 9px;
     flex-basis: 18%;
 }
 label.lg {
     flex-basis: 60%;
 }
-.mainBlue {
-    color: $mainBlue;
-}
+
 </style>

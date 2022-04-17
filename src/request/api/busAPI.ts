@@ -8,10 +8,16 @@ export const busAPI = {
             url: `/v2/Bus/Station/NearBy?%24top=30&%24spatialFilter=nearby(${store.state.position.latitude}%2C%20${store.state.position.longitude}%2C%20${'800'})&%24format=JSON`
         })
     },
-    getStopRoutes(stopId) {
+    getStopRoutes(stationId) {
         return Fetch({
             method: 'GET',            
-            url: `/v2/Bus/Route/City/Taipei/PassThrough/Station/${stopId}?%24top=30&%24format=JSON`
+            url: `/v2/Bus/Route/City/Taipei/PassThrough/Station/${stationId}?%24top=30&%24format=JSON`
+        })
+    },
+    getRouteEstimatedTime(route) {
+        return Fetch({
+            method: 'GET',
+            url: `/v2/Bus/EstimatedTimeOfArrival/City/Taipei/${route}?%24top=30&%24format=JSON`
         })
     }
 }

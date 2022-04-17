@@ -7,44 +7,43 @@
         <button class="manual mainBlue">手動輸入</button>
     </div>
     <div class="flex justify-between items-center m-2">
-        <button class="mainBlue">紅</button>
-        <button class="mainBlue">藍</button>
-        <button class="text-white">1</button>
-        <button class="text-white">2</button>
+        <button class="text-primary-color" value="紅">紅</button>
+        <button class="text-primary-color" value="藍">藍</button>
+        <button class="text-white" value="1">1</button>
+        <button class="text-white" value="2">2</button>
         <button class="text-white">3</button>
     </div>
     <div class="flex justify-between items-center m-2">
-        <button class="mainBlue">綠</button>
-        <button class="mainBlue">棕</button>
-        <button class="text-white">4</button>
-        <button class="text-white">5</button>
-        <button class="text-white">6</button>
+        <button class="text-primary-color" value="綠">綠</button>
+        <button class="text-primary-color" value="棕">棕</button>
+        <button class="text-white" value="4">4</button>
+        <button class="text-white" value="5">5</button>
+        <button class="text-white" value="6">6</button>
     </div>
     <div class="flex justify-between items-center m-2">
-        <button class="mainBlue">橘</button>
-        <button class="mainBlue">小</button>
-        <button class="text-white">7</button>
-        <button class="text-white">8</button>
-        <button class="text-white">9</button>
+        <button class="text-primary-color" value="橘">橘</button>
+        <button class="text-primary-color" value="小">小</button>
+        <button class="text-white" value="7">7</button>
+        <button class="text-white" value="8">8</button>
+        <button class="text-white" value="9">9</button>
     </div>
     <div class="flex justify-between items-center m-2">
-        <button class="mainBlue">幹線</button>
-        <button class="mainBlue">更多</button>
-        <button class="text-white">C</button>
-        <button class="text-white">0</button>
+        <button class="text-primary-color" value="幹線">幹線</button>
+        <button class="text-primary-color">更多</button>
+        <button class="text-white" value="C">C</button>
+        <button class="text-white" value="0">0</button>
         <button><img src="../../assets/delete.svg" alt="delete"></button>
     </div>
 </template>
 <style lang="scss" scoped>
-$mainBlue: #1CC8EE;   
 button {
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid $mainBlue;
+    border: 1px solid var(--primary-color);
     background-color: transparent;
-    box-shadow: 0px 0px 6px 0px $mainBlue;
+    box-shadow: 0px 0px 6px 0px var(--primary-color);
     border-radius: 9px;
     flex-basis: 18%;
 }
@@ -53,8 +52,5 @@ button {
 }
 .manual {
     flex-basis: 39%;
-}
-.mainBlue {
-    color: $mainBlue;
 }
 </style>

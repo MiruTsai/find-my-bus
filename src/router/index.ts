@@ -17,9 +17,22 @@ const routes = [
         }
     },
     {
-        path: '/line',
-        name: 'line',
-        component: () => import('../views/line.vue')
+        path: '/estimated/:routeName',
+        name: 'estimated',
+        component: () => import('../views/estimated/estimated.vue'),
+        props: true
+    },
+    {
+        path: '/busstop/:mode',
+        name: 'bus stop',
+        component: () => import('../views/busStop/busStop.vue'),
+        props: true
+    },
+    {
+        path: '/busstop/:mode/:stationId',
+        name: 'bus stop routes',
+        component: () => import('../views/busStop/busStop.vue'),
+        props: true
     }
 ];
 const router = createRouter({
