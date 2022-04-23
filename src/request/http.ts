@@ -1,6 +1,6 @@
 import base from './base';
 import axios, { AxiosRequestConfig } from 'axios';
-
+import jsSHA from 'jssha'
 // timeout
 const instance = axios.create({
     timeout: 1000 * 10,
@@ -11,15 +11,23 @@ instance.defaults.baseURL = base.baseurl;
 interface AxiosConfig extends AxiosRequestConfig {
     loading?: boolean;
 }
-
+const getAuthorizationHeader = () => {
+    const AppID = '5e0e40a2101048268e053b92d184ea3e';
+    const AppKey = 'f4FQWQ3THXXsD94pPcYgbfu1y50';
+    const GMTString = new Date().toUTCString();
+    const ShaObj = new jsSHA('SHA-1', 'TEXT');
+    ShaObj.setHMACKey(AppKey, 'TEXT');
+    ShaObj.update('x-date: ' + GMTString);
+    const HMAC = ShaObj.getHMAC('B64');
+    const Authorization = 'hmac username=\"' + AppID + '\", algorithm=\"hmac-sha1\", headers=\"x-date\", signature=\"' + HMAC + '\"';
+    return { 'Authorization': Authorization, 'X-Date': GMTString }; //如果要將js運行在伺服器，可額外加入 'Accept-Encoding': 'gzip'，要求壓縮以減少網路傳輸資料量
+}
 const Fetch = ({
     url = '',
     method = 'GET',
     data = {},
     params = {},
-    headers = {
-        'Content-Type': 'application/json',
-    },
+    headers = getAuthorizationHeader(),
     loading = true,
 }: AxiosConfig) => {
     if (loading) {
