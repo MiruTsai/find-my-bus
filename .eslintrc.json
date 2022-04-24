@@ -5,7 +5,8 @@
     },
     "extends": [
         "plugin:vue/essential",
-        "standard"
+        "eslint:recommended",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -14,8 +15,11 @@
     },
     "plugins": [
         "vue",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
+        "semi": ["error", "always"],
+        "prettier/prettier": "error"
     }
 }
