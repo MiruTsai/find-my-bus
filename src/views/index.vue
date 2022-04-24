@@ -36,6 +36,7 @@
                 <span class="mt-2">查詢客運</span> -->
       </button>
     </div>
+
     <p
       class="
         text-white text-xs
@@ -43,11 +44,16 @@
         bottom-2
         right-2
         md:text-base
-        lg:left-12 lg:text-xl
+        lg:left-10 lg:text-xl
       "
     >
       Find My Bus © Code: Miru / Design: KT
     </p>
+    <img
+      class="absolute bottom-7 right-1 w-36 lg:w-56 lg:left-8 lg:bottom-10 lg:text-xl"
+      src="../assets/PTX_logo.png"
+      alt=""
+    />
   </main>
 </template>
 <script lang="ts">
@@ -82,8 +88,8 @@ export default defineComponent({
   .circle_4 {
     width: 33px;
     height: 33px;
-    left: 228px;
-    top: 90%;
+    left: 68%;
+    top: 83%;
   }
   .circle_5 {
     display: none;
